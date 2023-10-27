@@ -111,18 +111,18 @@
 
         }
 
-        .main .section_1 {
+        .section_1 {
             position: relative;
             width: 100%;
             background-color: #000;
-            margin: -10px auto 0;
+            margin: -5px auto 0;
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 0 0 20px 20px;
         }
 
-        .main .section_2 {
+        .section_2 {
             position: relative;
             width: 100%;
             /* height: 100vh; */
@@ -130,15 +130,6 @@
             color: white !important;
             border-radius: 0 0 30px 30px;
             padding-top: 30px;
-        }
-        .main .section_3, .main .section_4{
-                position: relative;
-                width: 100%;                 
-                margin: 0 auto;
-                color: white !important;        
-                border-radius: 30px;
-                padding-top: 30px;
-                margin-top: 30px;
         }
 
         .apple-logo {
@@ -187,7 +178,36 @@
             max-width: 300px;
         }
 
-        @media only screen and (max-width: 1024px) {}
+        .section_3,
+        .section_4 {
+            margin: 0 auto;
+        }
+
+        .section_3 .vertical-slider-wrapper .video #video-3 {
+            width: 70%;
+            height: 100%;
+            object-fit: cover;
+
+        }
+
+        .section_3 .vertical-slider-wrapper .video {
+            text-align: center;
+        }
+
+        .section_3 .vertical-slider-wrapper .heading-text-white {
+            max-width: unset;
+            margin: 0 0 20px;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .vertical-slider-wrapper {
+                flex-direction: column;
+            }
+
+            .vertical-slider-wrapper .col {
+                width: 100%;
+            }
+        }
     </style>
 
 
@@ -199,7 +219,7 @@
 
 
             <video id="two-in-one-video" playsinline="" autoplay="autoplay" loop="loop" muted="muted">
-                <source src="https://cdn.shopify.com/videos/c/o/v/438f4587fe524775ba4a35973e21dc9b.mp4"
+                <source src="https://cdn.shopify.com/videos/c/o/v/21916e9edbe54a5ea3e8611362c38116.mp4"
                     type="video/mp4">
             </video>
 
@@ -211,7 +231,7 @@
                 <div class="vertical-slider-wrapper">
                     <div class="col">
                         <video id="video-1" playsinline="" autoplay="autoplay" loop="loop" muted="muted">
-                            <source src="https://cdn.shopify.com/videos/c/o/v/a119f557a2c3490b9334f1aecbc19136.mp4"
+                            <source src="https://cdn.shopify.com/videos/c/o/v/671407fbb07d4725ba7fe7d365cef77a.mp4"
                                 type="video/mp4">
                         </video>
                     </div>
@@ -219,7 +239,7 @@
                         <div class="heading-text-white ">Twice as fast as</div>
                         <p class="white-color">"MagSafe-Compatible" chargers</p>
                         <img class="apple-logo"
-                            src="https://d2kq0urxkarztv.cloudfront.net/6179cbd649a223003ef755ee/4461693/image-1bdb07cb-9704-494d-97c8-2882d5262571.jpg">
+                            src="https://cdn.shopify.com/s/files/1/0764/9257/0936/files/magsafe.jpg">
                     </div>
                 </div>
             </div>
@@ -227,12 +247,48 @@
         <section class="section_2">
             <div class="custom-container">
                 <div class="matrix-ultimate-box-container">
-                    <div class="content-box whit-bg section_3">
+                    <div class="content-box whit-bg">
                         <div class="content-box-heading">
                             True Wireless Charging</div>
                         <p>Power the entire stand with your Power Bank's battery to charge absolutely anywhere.</p>
                     </div>
-                    <div class="content-box black-bg section_3">
+                    <div class="content-box black-bg">
+                        <video id="video-1" playsinline="" autoplay="autoplay" loop="loop" muted="muted">
+                            <source src="https://cdn.shopify.com/videos/c/o/v/a119f557a2c3490b9334f1aecbc19136.mp4"
+                                type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section_3">
+            <div class="custom-container">
+                <div class="vertical-slider-wrapper">
+                    <div class="col video">
+                        <video id="video-3" playsinline="" autoplay="autoplay" loop="loop" muted="muted">
+                            <source src="https://cdn.shopify.com/videos/c/o/v/671407fbb07d4725ba7fe7d365cef77a.mp4"
+                                type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="col">
+                        <div class="heading-text-white ">Power Bank Recharges Wirelessly</div>
+                        <p class="white-color">Its 5,000 mAh Apple-Certified Power Bank can fully recharge your iPhone
+                            fast. </p>
+                        <p class="white-color">Once you've used up your Power Bank;s battery, slot it into the 3-in-1
+                            Fold Stand to wirelessly recharge. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section_4">
+            <div class="custom-container">
+                <div class="matrix-ultimate-box-container">
+                    <div class="content-box whit-bg">
+                        <div class="content-box-heading">
+                            Detach the USB-C Apple Watch Charger</div>
+                        <p>Works with your Power Bnak, Laptop and iPhone 15.</p>
+                    </div>
+                    <div class="content-box black-bg">
                         <video id="video-1" playsinline="" autoplay="autoplay" loop="loop" muted="muted">
                             <source src="https://cdn.shopify.com/videos/c/o/v/a119f557a2c3490b9334f1aecbc19136.mp4"
                                 type="video/mp4">
@@ -243,47 +299,60 @@
         </section>
 
 
+
     </div>
 
-   
     <script type="text/javascript">
-        let bg = document.querySelector('body .section_1');
+
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false){
+            let bg = document.querySelector('body .section_1');
 
         document.addEventListener('scroll', () => {
-            let x = window.pageYOffset - 200;
+            let x = window.pageYOffset - 300;
             let newx = (100 - x / 10);
             if (newx > 60) {
                 bg.style.width = (100 - x / 10) + '%';
             }
 
         })
-   
+        let bg1 = document.querySelector('body .section_2');
+
+        document.addEventListener('scroll', () => {
+            let x = window.pageYOffset - 1500;
+            let newx = (100 - x / 10);
+            if (newx > 50) {
+                bg1.style.width = (50 + x / 26) + '%';
+            }
+
+        })
+        let bg3 = document.querySelector('body .section_3');
+
+        document.addEventListener('scroll', () => {
+            let x = window.pageYOffset - 2000;
+            let newx = (100 - x / 10);
+            if (newx > 50) {
+                bg3.style.width = (60 + x / 20) + '%';
+            }
+
+        })
+        let bg4 = document.querySelector('body .section_4');
+
+        document.addEventListener('scroll', () => {
+            let x = window.pageYOffset - 2800;
+            let newx = (100 - x / 10);
+            if (newx > 50) {
+                bg4.style.width = (64 + x / 20) + '%';
+            }
+
+        })
+
+          
+        }else{
+          // mobile device
+          
+        }
+
         
-let bg3 = document.querySelector('body .section_3');
-
-document.addEventListener('scroll', () => {        
-  let x = window.pageYOffset - 1000;
-  let newx = (100 - x/10);
-  if(newx > 100){
-    bg3.style.width = (40 + x/10)+'%';
-  }
-  
-});
-
-
-let bg4 = document.querySelector('body .section_4');
-
-document.addEventListener('scroll', () => {        
-  let x = window.pageYOffset - 1000;
-  let newx = (100 - x/10);
-  if(newx > 100){
-    bg4.style.width = (40 + x/10)+'%';
-  }
-  
-});
-
-
-
     </script>
 </body>
 
