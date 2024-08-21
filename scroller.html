@@ -147,6 +147,7 @@ body h1 {
   }
 
   function addLoppAnimClasses () {
+    return;
     let activeItem = scrollItems.find((item) => {
       return item.classList.contains('active');
     })
@@ -259,6 +260,7 @@ body h1 {
       eventType = 'wheel';
     }
     scrollContainerEle.addEventListener(eventType, function (event) {
+        console.log(event.detail);
       let scrollTop = scrollContainerEle.scrollTop,
           scrollHeight = scrollContainerEle.scrollHeight,
           height = scrollContainerEle.clientHeight;
