@@ -817,6 +817,7 @@ body h1 {
   }
 
   function addLoppAnimClasses () {
+    return false;
     let activeItem = scrollItems.find((item) => {
       return item.classList.contains('active');
     })
@@ -967,7 +968,7 @@ body h1 {
  scrollSlide({
    container: ".ss-container",
    item: ".ss-item",
-   animType: "ss-move-up",
+   animType: "ss-move-down",
    duration: 1,
    delay: 0,
    uncutMove: true
