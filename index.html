@@ -57,12 +57,14 @@ h2.sec{font-size:clamp(30px,4vw,42px);margin-bottom:8px}
 .case h3{font-size:clamp(24px,3vw,32px)}
 .case .meta{margin:10px 0 0;font-size:15px}
 .case .big{font-family:"Plus Jakarta Sans",sans-serif;font-size:clamp(28px,3.4vw,38px);line-height:1.05;margin-top:18px;display:block}
-.case .big small{display:block;font-family:Inter,sans-serif;font-size:14px;font-weight:500;margin-top:4px}
+.case .big small{display:block;font-family:Inter,sans-serif;font-size:15px;font-weight:500;line-height:1.4;margin-top:10px;letter-spacing:0}
 .case p{margin:0 0 12px;max-width:68ch}
 .case ul{margin:0 0 12px;padding-left:20px;max-width:68ch}
 .case li{margin-bottom:6px}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;padding:0;list-style:none}
-.tags li{font-size:13px;padding:3px 10px;border-radius:999px;border:1px solid currentColor;margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding:0;list-style:none}
+.case .tags{padding-left:0;max-width:none;margin:20px 0 0}
+.case .tags li{margin:0}
+.tags li{font-size:13px;line-height:1;padding:7px 12px;border-radius:999px;border:1px solid color-mix(in srgb,currentColor 45%,transparent);background:color-mix(in srgb,currentColor 7%,transparent);margin:0}
 .aov{margin:14px 0 6px;max-width:520px}
 .aov .row{display:grid;grid-template-columns:5.5em minmax(0,1fr) 4em;gap:10px;align-items:center;font-size:14px;margin:5px 0}
 .aov .bar{height:12px;border-radius:6px;background:#24443a}
@@ -121,29 +123,7 @@ footer{font-size:14px;padding:20px max(5vw,16px);border-top:1px solid var(--line
 
 <section class="band ink" id="work"><div class="wrap">
   <h2 class="sec">Case studies</h2>
-  <p class="intro soft">Three stores, three different problems: a multi-country migration, a cart and offers system that lifts order value, and a large catalogue fed straight from a distributor.</p>
-
-  <article class="case">
-    <div>
-      <h3>ALOGIC: Magento 2 to Shopify Plus, 11 countries</h3>
-      <p class="meta soft">Premium tech accessories · Built the Magento store, ran it for 3 years, then migrated it</p>
-      <span class="big">11 countries<small class="soft">moved solo, with SEO preserved</small></span>
-      <ul class="tags"><li>Shopify Plus</li><li>Shopify Advanced</li><li>Matrixify</li><li>Node.js</li><li>Admin API</li><li>Liquid</li><li>Magento 2</li></ul>
-    </div>
-    <div>
-      <p>I originally built ALOGIC's multi-store, multi-country Magento 2 site and ran it for three years. As the business grew, hosting costs and the work of Magento upgrades kept climbing, so it moved to Shopify. The move had to keep the catalogue, customer accounts and regional structure intact.</p>
-      <ul>
-        <li>Planned and ran the migration solo, with regional stores on Shopify Plus and Advanced according to each market's needs. A second developer joined after launch.</li>
-        <li>Moved about 1,000 products, 5,000 customers and the CMS content with Matrixify and my own Node.js scripts on the Admin API.</li>
-        <li>Set up URL redirects from the old Magento URLs so search rankings and inbound links carried over.</li>
-        <li>Redesigned and built every product page template, the homepage and the product-launch landing pages.</li>
-        <li>Made product pages editable by the non-technical team, then supported the stores after launch.</li>
-      </ul>
-      <p><b>Result:</b> all 11 countries live on Shopify with rankings kept, sales up after the move, and page speed on par with an already fast Magento store.</p>
-      <div class="shot narrow"><div class="bar"><i></i><i></i><i></i><span>alogic.co · product page I designed and built</span></div><div class="view" tabindex="0" aria-label="Scrollable screenshot of an ALOGIC product page"><img src="img/alogic-pdp.jpg" alt="Full ALOGIC product page for the 40 inch Edge 5K monitor, from buy box to feature sections, specs and reviews" loading="lazy"></div></div>
-      <p class="shotcap soft">Scroll inside the frame to see the whole page.</p>
-    </div>
-  </article>
+  <p class="intro soft">Three stores, three different problems: a cart and offers system that lifts order value, a multi-country migration, and a large catalogue fed straight from a distributor.</p>
 
   <article class="case">
     <div>
@@ -168,6 +148,28 @@ footer{font-size:14px;padding:20px max(5vw,16px);border-top:1px solid var(--line
       <div class="shot"><div class="bar"><i></i><i></i><i></i><span>gyalabs.com · use-based product page with sets and rewards bar</span></div><div class="view" tabindex="0" aria-label="Scrollable screenshot of a Gya Labs product page"><img src="img/gyalabs-pdp.jpg" alt="Gya Labs Lavender product page: choose a use, single bottle or set options, free-shipping and gift progress bar, reviews and routine sections" loading="lazy"></div></div>
       <p class="shotcap soft">Scroll inside the frame to see the whole page.</p>
       <ul class="tags"><li>Liquid</li><li>Cart AJAX API</li><li>Shopify Flow</li><li>Postgres</li><li>Node.js</li><li>Google Merchant Center</li><li>JSON-LD</li></ul>
+    </div>
+  </article>
+
+  <article class="case">
+    <div>
+      <h3>ALOGIC: Magento 2 to Shopify Plus, 11 countries</h3>
+      <p class="meta soft">Premium tech accessories · Built the Magento store, ran it for 3 years, then migrated it</p>
+      <span class="big">11 countries<small class="soft">moved solo, with SEO preserved</small></span>
+      <ul class="tags"><li>Shopify Plus</li><li>Shopify Advanced</li><li>Matrixify</li><li>Node.js</li><li>Admin API</li><li>Liquid</li><li>Magento 2</li></ul>
+    </div>
+    <div>
+      <p>I originally built ALOGIC's multi-store, multi-country Magento 2 site and ran it for three years. As the business grew, hosting costs and the work of Magento upgrades kept climbing, so it moved to Shopify. The move had to keep the catalogue, customer accounts and regional structure intact.</p>
+      <ul>
+        <li>Planned and ran the migration solo, with regional stores on Shopify Plus and Advanced according to each market's needs. A second developer joined after launch.</li>
+        <li>Moved about 1,000 products, 5,000 customers and the CMS content with Matrixify and my own Node.js scripts on the Admin API.</li>
+        <li>Set up URL redirects from the old Magento URLs so search rankings and inbound links carried over.</li>
+        <li>Redesigned and built every product page template, the homepage and the product-launch landing pages.</li>
+        <li>Made product pages editable by the non-technical team, then supported the stores after launch.</li>
+      </ul>
+      <p><b>Result:</b> all 11 countries live on Shopify with rankings kept, sales up after the move, and page speed on par with an already fast Magento store.</p>
+      <div class="shot narrow"><div class="bar"><i></i><i></i><i></i><span>alogic.co · product page I designed and built</span></div><div class="view" tabindex="0" aria-label="Scrollable screenshot of an ALOGIC product page"><img src="img/alogic-pdp.jpg" alt="Full ALOGIC product page for the 40 inch Edge 5K monitor, from buy box to feature sections, specs and reviews" loading="lazy"></div></div>
+      <p class="shotcap soft">Scroll inside the frame to see the whole page.</p>
     </div>
   </article>
 
