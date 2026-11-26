@@ -1,50 +1,286 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - Jump to section with layering - ScrollTrigger</title>
-  <link href='//fonts.googleapis.com/css?family=Signika+Negative:300,400,600' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel='stylesheet' href='https://codepen.io/GreenSock/pen/ZEGdQLM/7ba936b34824fefdccfe2c6d9f0b740b.css'><link rel="stylesheet" href="./style.css">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dushyant Joshi Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: a senior engineer's portfolio, calm, specific, evidence first
+   IDEA a store's order route: every station between a supplier feed and a shipped order, each one something he built
+   PICTURE the route drawn large, stations labelled with the project that covered them, a token travelling it
+   COLOUR white ground, near-black ink, deep commerce green bands, one green accent for the headline result
+   TYPE Plus Jakarta Sans display + Inter text
+   LAYOUT laptop: title and availability across the top, route full width beneath, figures strip; phone: title, vertical route, figures */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0d1412);--ink:light-dark(#111a17,#eef3f1);--soft:light-dark(#4a5a55,#a7b8b2);--card:light-dark(#f4f7f6,#16211e);--line:light-dark(#dde5e2,#26342f);--pink:light-dark(#0a7a5a,#3ccf9a);--pinkText:light-dark(#0a7a5a,#5fdcab);--deep:light-dark(#0f2e25,#091a15);--onDeep:#eef6f2}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Plus Jakarta Sans",Inter,sans-serif;letter-spacing:-.025em;line-height:1.08;font-weight:700;margin:0}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding-block:clamp(28px,4vw,64px);padding-left:max(5vw,16px);padding-right:max(5vw,16px)}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 20px;padding:12px max(5vw,16px)}
+nav b{font-family:"Plus Jakarta Sans",sans-serif;font-size:18px}
+nav .links{display:flex;flex-wrap:wrap;gap:4px 18px}
+nav .links a{text-decoration:none;font-weight:500;padding:6px 0}
+nav .links a:hover,nav .links a:focus-visible{color:var(--pinkText)}
+.hero h1{font-size:clamp(34px,5vw,52px);max-width:16ch;text-wrap:balance}
+.hero .top{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 48px;align-items:end}
+.lede{font-size:17px;max-width:60ch;margin:16px 0 0;color:var(--soft)}
+.avail{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.avail h2{font-size:20px;margin-bottom:8px}
+.avail ul{margin:0;padding-left:18px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:10px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.main{background:var(--pink);color:light-dark(#ffffff,#0d1412);border-color:var(--pink)}
+.btn:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.fig{position:relative;min-height:300px;margin-top:28px;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+.fig svg text{paint-order:stroke;stroke:var(--card);stroke-width:4px;font-family:Inter,sans-serif}
+.figcap{font-size:14px;color:var(--soft);margin:10px 2px 0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(10em,1fr));gap:16px;margin-top:28px}
+.stat b{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:clamp(30px,4vw,42px);line-height:1.05;white-space:nowrap}
+.stat span{font-size:15px;color:var(--soft)}
+.stat.hot b{color:var(--pinkText)}
+.ink{background:var(--deep);color:var(--onDeep)}
+.ink .soft{color:#b9d0c7}
+h2.sec{font-size:clamp(30px,4vw,42px);margin-bottom:8px}
+.intro{max-width:62ch;margin:0 0 28px}
+.case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:20px 48px;padding:32px 0;border-top:1px solid var(--line)}
+.ink .case{border-color:#2c4a40}
+.case h3{font-size:clamp(24px,3vw,32px)}
+.case .meta{margin:10px 0 0;font-size:15px}
+.case .big{font-family:"Plus Jakarta Sans",sans-serif;font-size:clamp(28px,3.4vw,38px);line-height:1.05;margin-top:18px;display:block}
+.case .big small{display:block;font-family:Inter,sans-serif;font-size:14px;font-weight:500;margin-top:4px}
+.case p{margin:0 0 12px;max-width:68ch}
+.case ul{margin:0 0 12px;padding-left:20px;max-width:68ch}
+.case li{margin-bottom:6px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;padding:0;list-style:none}
+.tags li{font-size:13px;padding:3px 10px;border-radius:999px;border:1px solid currentColor;margin:0}
+.aov{margin:14px 0 6px;max-width:520px}
+.aov .row{display:grid;grid-template-columns:5.5em minmax(0,1fr) 4em;gap:10px;align-items:center;font-size:14px;margin:5px 0}
+.aov .bar{height:12px;border-radius:6px;background:#24443a}
+.aov .bar i{display:block;height:100%;border-radius:6px;background:#5fdcab}
+.aov .row b{text-align:right;font-variant-numeric:tabular-nums}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.panel h3{font-size:22px;margin-bottom:8px}
+.panel p{margin:0 0 10px}
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.skills h3{font-size:19px;margin-bottom:8px}
+.skills ul{margin:0;padding-left:18px}
+.contact{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px 48px;align-items:center}
+.contact h2{font-size:clamp(30px,4vw,44px)}
+footer{font-size:14px;padding:20px max(5vw,16px);border-top:1px solid var(--line);color:var(--soft)}
+.shot{margin:18px 0 6px;border:1px solid #2c4a40;border-radius:12px;overflow:hidden;background:#ffffff}
+.shot .bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:#e9efed;color:#33443e;font-size:13px}
+.shot .bar i{width:10px;height:10px;border-radius:50%;background:#c3cfca;flex:none}
+.shot .bar span{margin-left:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shot .view{height:clamp(380px,60vh,620px);overflow-y:auto;overscroll-behavior:contain}
+.shot img{display:block;width:100%;max-width:100%;height:auto;margin:0 auto}
+.shot.narrow img{max-width:692px}
+.shotcap{font-size:13px;margin:0 0 4px}
+@media(max-width:900px){.hero .top,.case,.contact{grid-template-columns:minmax(0,1fr)}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.cols,.skills{grid-template-columns:minmax(0,1fr)}.fig{min-height:470px}}
+</style>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<section class="description panel blue">
-  <div>
-    <h1>Layered pinning</h1>
-    <p>Use pinning to layer panels on top of each other as you scroll.</p>
-    <div class="scroll-down">Scroll down<div class="arrow"></div></div>
+<nav><div class="wrap"><b>Dushyant Joshi</b><div class="links"><a href="#work">Work</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></div></nav>
+
+<header class="band hero"><div class="wrap">
+  <div class="top">
+    <div>
+      <h1>Senior Shopify Plus engineer for the whole order route</h1>
+      <p class="lede">18 years building and running ecommerce. I migrate stores, connect them to suppliers and warehouses, make carts and offers work together, and automate the checks in between. Most of it solo, all of it in production.</p>
+    </div>
+    <div class="avail">
+      <h2>Available for contract work</h2>
+      <ul>
+        <li>Part-time retainers or project work</li>
+        <li>Based in India, working with UK, EU and US teams</li>
+        <li>Live overlap until 9:30 pm IST, async beyond that</li>
+      </ul>
+      <div class="btns"><a class="btn main" href="#contact">Get in touch</a><a class="btn" href="#work">See case studies</a><a class="btn" href="https://github.com/be-geeky">GitHub</a></div>
+    </div>
   </div>
-</section>
+  <div class="fig" id="route" role="img" aria-label="Order route from supplier feeds to shipped order, with the project that covered each station"><svg id="routeSvg"></svg></div>
+  <p class="figcap">Every station on this route is something I have built or rebuilt in a live store.</p>
+  <div class="stats">
+    <div class="stat"><b>18 yrs</b><span>building ecommerce</span></div>
+    <div class="stat"><b>11</b><span>countries migrated from Magento 2 to Shopify, solo</span></div>
+    <div class="stat"><b>10,000+</b><span>products imported and kept in sync from a distributor</span></div>
+    <div class="stat hot"><b>+81%</b><span>average order value while my cart and offer work shipped</span></div>
+  </div>
+</div></header>
 
+<section class="band ink" id="work"><div class="wrap">
+  <h2 class="sec">Case studies</h2>
+  <p class="intro soft">Three stores, three different problems: a multi-country migration, a cart and offers system that lifts order value, and a large catalogue fed straight from a distributor.</p>
 
-<section class="panel red">
-	ONE
-</section>
-<section class="panel orange">
-	TWO
-</section>
-<section class="panel purple">
-	THREE
-</section>
-<section class="panel green">
-	FOUR
-</section>
+  <article class="case">
+    <div>
+      <h3>ALOGIC: Magento 2 to Shopify Plus, 11 countries</h3>
+      <p class="meta soft">Premium tech accessories · Built the Magento store, ran it for 3 years, then migrated it</p>
+      <span class="big">11 countries<small class="soft">moved solo, with SEO preserved</small></span>
+      <ul class="tags"><li>Shopify Plus</li><li>Shopify Advanced</li><li>Matrixify</li><li>Node.js</li><li>Admin API</li><li>Liquid</li><li>Magento 2</li></ul>
+    </div>
+    <div>
+      <p>I originally built ALOGIC's multi-store, multi-country Magento 2 site and ran it for three years. As the business grew, hosting costs and the work of Magento upgrades kept climbing, so it moved to Shopify. The move had to keep the catalogue, customer accounts and regional structure intact.</p>
+      <ul>
+        <li>Planned and ran the migration solo, with regional stores on Shopify Plus and Advanced according to each market's needs. A second developer joined after launch.</li>
+        <li>Moved about 1,000 products, 5,000 customers and the CMS content with Matrixify and my own Node.js scripts on the Admin API.</li>
+        <li>Set up URL redirects from the old Magento URLs so search rankings and inbound links carried over.</li>
+        <li>Redesigned and built every product page template, the homepage and the product-launch landing pages.</li>
+        <li>Made product pages editable by the non-technical team, then supported the stores after launch.</li>
+      </ul>
+      <p><b>Result:</b> all 11 countries live on Shopify with rankings kept, sales up after the move, and page speed on par with an already fast Magento store.</p>
+      <div class="shot narrow"><div class="bar"><i></i><i></i><i></i><span>alogic.co · product page I designed and built</span></div><div class="view" tabindex="0" aria-label="Scrollable screenshot of an ALOGIC product page"><img src="img/alogic-pdp.jpg" alt="Full ALOGIC product page for the 40 inch Edge 5K monitor, from buy box to feature sections, specs and reviews" loading="lazy"></div></div>
+      <p class="shotcap soft">Scroll inside the frame to see the whole page.</p>
+    </div>
+  </article>
 
+  <article class="case">
+    <div>
+      <h3>Gya Labs: cart, rewards and automation for a DTC brand</h3>
+      <p class="meta soft">Essential oils, US and European customers · Own the store's technical side end to end</p>
+      <span class="big">$30.89 → $56.03<small class="soft">average order value, Dec 2025 to Oct 2026</small></span>
+      <div class="aov" id="aov" aria-label="Monthly average order value increases"></div>
+      <p class="soft" style="font-size:13px">Months with an increase. AOV also moves with marketing and pricing; these are the months this work shipped.</p>
+    </div>
+    <div>
+      <p>The store's offers had grown piece by piece: free shipping, free gifts, bottle discounts, subscriptions and Shipping Protection. They clashed. Gifts went missing, a $0 gift could be bought on its own, page and cart prices disagreed, and checkout sometimes stuck.</p>
+      <ul>
+        <li><b>Reward ladder:</b> one $50 free-shipping threshold plus free gifts at $75 and $95, with both gifts added in a single cart request so none is lost.</li>
+        <li><b>Loopholes closed:</b> $0 gift variants redirect to the paid variant and never show a $0 price in cards or recommendations.</li>
+        <li><b>Prices that always match:</b> a per-line bottle discount ladder (2 for 10%, 3+ for 15%, 6+ for 20%) that also applies on subscription renewals, rounding matched to Shopify's, and Shipping Protection kept out of gift thresholds.</li>
+        <li><b>New product page for 30+ oils:</b> choose a use, then a bottle or a set, with a set upsell and a live rewards bar.</li>
+        <li><b>Cart pop-up:</b> checkout waits until gifts and protection are in place, and shows the real total.</li>
+        <li><b>Fraud screening in Shopify Flow:</b> orders scored on risk level, address mismatch, IP and country, order velocity, customer history and email patterns; risky orders are held, flagged to the team and cancelled if not confirmed in time.</li>
+        <li><b>Data and feeds:</b> a Postgres to Shopify inventory sync with a review screen, Google Merchant Center disapprovals fixed at the root, structured data and AI-crawler readiness.</li>
+      </ul>
+      <p><b>Result:</b> customers get the gifts and free shipping they are promised, prices match from product page to checkout, fewer chargebacks with fraud caught before shipping, and order value up 81% over the period.</p>
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>gyalabs.com · use-based product page with sets and rewards bar</span></div><div class="view" tabindex="0" aria-label="Scrollable screenshot of a Gya Labs product page"><img src="img/gyalabs-pdp.jpg" alt="Gya Labs Lavender product page: choose a use, single bottle or set options, free-shipping and gift progress bar, reviews and routine sections" loading="lazy"></div></div>
+      <p class="shotcap soft">Scroll inside the frame to see the whole page.</p>
+      <ul class="tags"><li>Liquid</li><li>Cart AJAX API</li><li>Shopify Flow</li><li>Postgres</li><li>Node.js</li><li>Google Merchant Center</li><li>JSON-LD</li></ul>
+    </div>
+  </article>
 
+  <article class="case">
+    <div>
+      <h3>Bytecart: 10,000+ products from a distributor, live in a month</h3>
+      <p class="meta soft">US tech retailer in the ALOGIC group · Built from scratch, solo</p>
+      <span class="big">1 month<small class="soft">from empty store to launch</small></span>
+      <ul class="tags"><li>Shopify</li><li>Ingram Micro API</li><li>Node.js</li><li>Admin API</li><li>Scheduled CSV</li></ul>
+    </div>
+    <div>
+      <p>Bytecart wanted to sell a large catalogue straight from the distributor, Ingram Micro, without staff editing products by hand.</p>
+      <ul>
+        <li>Built the store from scratch on Shopify, working alone from setup to launch.</li>
+        <li>Imported 10,000+ products through the Ingram Micro API and mapped them into a clean category and collection structure.</li>
+        <li>Designed a custom navigation so shoppers can browse a very large catalogue by category and by brand.</li>
+        <li>Wrote Node.js jobs that process the distributor's ~20 MB scheduled feed: stock syncs three times a day, prices weekly.</li>
+      </ul>
+      <p><b>Result:</b> a five-figure catalogue launched in about a month by one developer, with stock and prices kept in step with the distributor automatically.</p>
+    </div>
+  </article>
+</div></section>
 
+<section class="band" id="projects"><div class="wrap">
+  <h2 class="sec">Side projects</h2>
+  <p class="intro">Where I try new parts of the platform before clients need them.</p>
+  <div class="cols">
+    <div class="panel">
+      <h3>Safe Bulk Changes</h3>
+      <p>A Shopify app in development for bulk product edits with a preview before saving, a snapshot of every change, and one-click undo. Built for merchants who have been burned by a bad CSV import.</p>
+      <ul class="tags"><li>Shopify app</li><li>GraphQL Admin API</li><li>Bulk operations</li></ul>
+    </div>
+    <div class="panel">
+      <h3>ShopMind</h3>
+      <p>An AI shopping engine on Shopify's MCP infrastructure: shoppers describe what they need and get matched products from real store data. Built end to end and live.</p>
+      <p><a href="https://shopmind-ochre.vercel.app">shopmind-ochre.vercel.app</a></p>
+      <ul class="tags"><li>Shopify MCP</li><li>Claude API</li><li>Next.js</li><li>Supabase</li></ul>
+    </div>
+  </div>
+</div></section>
 
+<section class="band" id="skills" style="padding-top:0"><div class="wrap">
+  <h2 class="sec">What I work with</h2>
+  <div class="skills" style="margin-top:20px">
+    <div><h3>Storefront</h3><ul><li>Liquid, Online Store 2.0 sections and blocks</li><li>JavaScript, cart and AJAX APIs</li><li>Product pages, landing pages, cart drawers</li><li>Core Web Vitals and page speed</li></ul></div>
+    <div><h3>Platform and data</h3><ul><li>Shopify Plus and Advanced, Markets</li><li>Admin API, metafields, bulk imports</li><li>Matrixify, Node.js sync jobs, Postgres</li><li>Magento 2 to Shopify migrations</li></ul></div>
+    <div><h3>Growth and operations</h3><ul><li>Shopify Flow automation and fraud rules</li><li>Discount and reward logic, bundles</li><li>Google Merchant Center, feeds, JSON-LD</li><li>Klaviyo, GA4, AI-assisted development</li></ul></div>
+  </div>
+</div></section>
 
-<header>
-   <a href="https://greensock.com/scrolltrigger">
-     <img class="greensock-icon" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/scroll-trigger-logo-light.svg" width="200" height="64" />
-  </a> 
-</header>
-<!-- partial -->
-  <script src='https://assets.codepen.io/16327/gsap-latest-beta.min.js'></script>
-<script src='https://assets.codepen.io/16327/ScrollTrigger.min.js'></script>
-<script src='https://codepen.io/GreenSock/pen/ZEGdQLM/7ba936b34824fefdccfe2c6d9f0b740b.js'></script>
-<script src='https://assets.codepen.io/16327/ScrollToPlugin3.min.js'></script><script  src="./script.js"></script>
+<section class="band ink" id="contact"><div class="wrap contact">
+  <div>
+    <h2>Have a store that needs a careful pair of hands?</h2>
+    <p class="soft" style="max-width:56ch;margin-top:14px">Migrations, supplier and warehouse syncs, cart and offer logic, or a steady monthly retainer for a store you rely on. Tell me what you are working on.</p>
+  </div>
+  <div>
+    <div class="btns"><a class="btn main" style="background:#ffffff;color:#0f2e25;border-color:#ffffff" href="https://www.linkedin.com/in/dushyantajoshi/">Message me on LinkedIn</a><a class="btn" style="border-color:#ffffff;color:#ffffff" href="https://github.com/be-geeky">View my GitHub</a></div>
+    <p class="soft" style="margin-top:12px">linkedin.com/in/dushyantajoshi<br>github.com/be-geeky</p>
+  </div>
+</div></section>
 
+<footer><div class="wrap">Dushyant Joshi · Senior Shopify Plus engineer · India · <a href="https://www.linkedin.com/in/dushyantajoshi/">LinkedIn</a> · <a href="https://github.com/be-geeky">GitHub</a></div></footer>
+
+<script>
+{
+const aov=[["Jan 2026",30.89,43.84],["Mar 2026",38.51,42.85],["Apr 2026",42.85,50.62],["May 2026",50.62,63.22],["Jul 2026",39.11,47.22],["Sep 2026",43.29,48.38],["Oct 2026",48.38,56.03]];
+const mx=Math.max(...aov.map(r=>(r[2]/r[1]-1)));
+document.getElementById("aov").innerHTML=aov.map(r=>{const p=r[2]/r[1]-1;return `<div class="row"><span>${r[0]}</span><div class="bar"><i style="width:${(p/mx*100).toFixed(1)}%"></i></div><b>+${(p*100).toFixed(1)}%</b></div>`}).join("");
+
+const st=[
+ {n:"Supplier & ERP feeds",p:"Bytecart · Gya Labs"},
+ {n:"Catalogue",p:"10,000+ products"},
+ {n:"Storefront & PDP",p:"ALOGIC · Gya Labs"},
+ {n:"Cart & rewards",p:"+81% AOV",hot:1},
+ {n:"Fraud check",p:"Shopify Flow"},
+ {n:"Order out",p:"Synced stock"}
+];
+const s=document.getElementById("routeSvg");
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+let pts=[],tok=null,t0=0;
+const draw=()=>{
+ const W=s.clientWidth,H=s.clientHeight;if(!W||!H)return;
+ const vert=W<620;let h="";pts=[];
+ if(!vert){
+  const m=Math.max(70,W*0.08),y=H*0.5,step=(W-2*m)/(st.length-1);
+  st.forEach((d,i)=>pts.push([m+i*step,y]));
+  h+=`<line x1="${m-40}" y1="${y}" x2="${W-m+40}" y2="${y}" stroke="var(--ink)" stroke-width="10" stroke-linecap="round"/>`;
+  st.forEach((d,i)=>{const [x]=pts[i];const up=i%2===0;const ly=up?y-46:y+56;
+   const an=i===0?"start":i===st.length-1?"end":"middle",tx=i===0?x-14:i===st.length-1?x+14:x;
+   h+=`<line x1="${x}" y1="${y}" x2="${x}" y2="${up?y-18:y+18}" stroke="var(--line)" stroke-width="2"/>`;
+   h+=`<circle cx="${x}" cy="${y}" r="${d.hot?17:13}" fill="${d.hot?"var(--pink)":"var(--card)"}" stroke="var(--ink)" stroke-width="4"/>`;
+   h+=`<text x="${tx}" y="${ly}" text-anchor="${an}" font-size="15" font-weight="600" fill="var(--ink)">${d.n}</text>`;
+   h+=`<text x="${tx}" y="${ly+20}" text-anchor="${an}" font-size="14" fill="${d.hot?"var(--pinkText)":"var(--soft)"}" font-weight="${d.hot?600:400}">${d.p}</text>`;});
+ }else{
+  const x=36,m=36,step=(H-2*m)/(st.length-1);
+  st.forEach((d,i)=>pts.push([x,m+i*step]));
+  h+=`<line x1="${x}" y1="${m-20}" x2="${x}" y2="${H-m+20}" stroke="var(--ink)" stroke-width="10" stroke-linecap="round"/>`;
+  st.forEach((d,i)=>{const [,y]=pts[i];
+   h+=`<circle cx="${x}" cy="${y}" r="${d.hot?16:12}" fill="${d.hot?"var(--pink)":"var(--card)"}" stroke="var(--ink)" stroke-width="4"/>`;
+   h+=`<text x="${x+32}" y="${y-2}" font-size="15" font-weight="600" fill="var(--ink)">${d.n}</text>`;
+   h+=`<text x="${x+32}" y="${y+18}" font-size="14" fill="${d.hot?"var(--pinkText)":"var(--soft)"}" font-weight="${d.hot?600:400}">${d.p}</text>`;});
+ }
+ h+=`<circle id="tok" r="7" fill="var(--pink)" stroke="var(--card)" stroke-width="3" cx="${pts[0][0]}" cy="${pts[0][1]}"/>`;
+ s.innerHTML=h;tok=s.querySelector("#tok");
+};
+const ro=new ResizeObserver(draw);ro.observe(s);
+const tick=ts=>{
+ if(tok&&pts.length>1){if(!t0)t0=ts;const dur=7000,f=((ts-t0)%dur)/dur,seg=f*(pts.length-1),i=Math.min(Math.floor(seg),pts.length-2),k=seg-i;
+  tok.setAttribute("cx",pts[i][0]+(pts[i+1][0]-pts[i][0])*k);tok.setAttribute("cy",pts[i][1]+(pts[i+1][1]-pts[i][1])*k);}
+ requestAnimationFrame(tick);
+};
+if(!reduce)requestAnimationFrame(tick);
+}
+</script>
 </body>
 </html>
